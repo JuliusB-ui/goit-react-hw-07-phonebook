@@ -3,7 +3,7 @@ import { Filter } from './Filter/Filter';
 import { List } from './List/List';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from '../redux/operations';
 
 

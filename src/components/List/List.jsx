@@ -2,8 +2,6 @@ import { ListItem } from 'components/ListItem/ListItem';
 import css from './List.module.css';
 import { getContactsList, getFilter } from '../../redux/selector';
 import { useSelector } from 'react-redux';
-import { getError, getIsLoading } from '../../redux/selector';
-import { Loader } from '../Loading/Loading';
 
 const getFilteredContact = (filter, contacts) => {
   const filteredContacts = contacts.filter(contact => {
