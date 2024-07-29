@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import css from './ListItem.module.css';
 import PropTypes from 'prop-types';
-import { deleteContact } from '../../redux/contactSlice';
+import { deleteContact } from '../../redux/operations';
 
 export const ListItem = ({ filteredContact }) => {
   // handleDelete method

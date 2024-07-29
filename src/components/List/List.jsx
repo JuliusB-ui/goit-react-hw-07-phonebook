@@ -1,7 +1,9 @@
 import { ListItem } from 'components/ListItem/ListItem';
 import css from './List.module.css';
-import { getContacts, getFilter } from '../../redux/selector';
+import { getContactsList, getFilter } from '../../redux/selector';
 import { useSelector } from 'react-redux';
+import { getError, getIsLoading } from '../../redux/selector';
+import { Loader } from '../Loading/Loading';
 
 const getFilteredContact = (filter, contacts) => {
   const filteredContacts = contacts.filter(contact => {
@@ -12,10 +14,12 @@ const getFilteredContact = (filter, contacts) => {
 }
 
 export const List = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(getContactsList);
   const filter = useSelector(getFilter);
   const filteredContacts = getFilteredContact(filter, contacts);
+
   return (
+    <>
     <ul className={css.listUl}>
       {filteredContacts.map(filteredContact => (
         <ListItem
@@ -24,5 +28,6 @@ export const List = () => {
         />
       ))}
     </ul>
+    </>
   );
 };

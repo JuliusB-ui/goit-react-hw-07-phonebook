@@ -3,14 +3,14 @@ import css from './Form.module.css';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../../redux/selector';
-import { addContact } from '../../redux/contactSlice';
+import { getContactsList } from '../../redux/selector';
+import { addContact } from '../../redux/operations';
 
 export const Form =() => {
 const dispatch = useDispatch();
 const [name, setName] = useState('');
 const [number, setNumber] = useState('');
-const contacts = useSelector(getContacts);
+const contacts = useSelector(getContactsList);
 
   const handleNameChange = e => {
     setName(e.target.value);
@@ -34,7 +34,11 @@ const contacts = useSelector(getContacts);
     }
 
         // Add Contact
-    dispatch(addContact(name, number));
+        const contact ={
+          name,
+          number,
+        };
+    dispatch(addContact(contact));
     // Reset Form Fields upon submitting
     setName('');
     setNumber('');
